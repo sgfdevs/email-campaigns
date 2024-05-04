@@ -131,7 +131,7 @@ export const YelpRecentLoginEmail = ({
 											and gives you the opportunity to showcase your skills as a
 											developer.
 										</Text>
-										<Text>Membership is not required.</Text>
+										<Text>Profile is not required to attend SGF Dev events.</Text>
 										<Text>Create a Profile Here</Text>
 									</Column>
 								</Row>
