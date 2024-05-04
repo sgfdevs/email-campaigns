@@ -4,11 +4,22 @@
 
 05/04/2024
 - Fix profile disclaimer message
-
-Backlog
 - Create button style
 - Figure out how to wire in images
 - Create email header
+- Add links
+- Figure out how to load in content that changes month to month (links, title, description, etc)
+- Add in all sponsor images and links
+
+<hr>
+
+Backlog
+- implement responsive design
+- cleanup boilerplate naming
+- dynamically generate sponsors from array of sponsor images and website links
+- add in structure for multiple event dev nights
+- modify description structure so you don't need to break up descriptions into paragraphs
+- add in social media links
 
 </p>
 </details>

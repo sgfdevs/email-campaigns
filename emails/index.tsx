@@ -7,6 +7,7 @@ import {
 	Heading,
 	Html,
 	Img,
+	Link,
 	Preview,
 	Row,
 	Section,
@@ -14,106 +15,159 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-interface YelpRecentLoginEmailProps {
-	userFirstName?: string;
-	loginDate?: Date;
-	loginDevice?: string;
-	loginLocation?: string;
-	loginIp?: string;
-}
+const baseUrl = "http://localhost:3000/static";
+const baseSponsorUrl = "http://localhost:3000/static/sponsors";
 
-const baseUrl = process.env.VERCEL_URL
-	? `https://${process.env.VERCEL_URL}`
-	: "";
-
-export const YelpRecentLoginEmail = ({
-	userFirstName,
-	loginDate,
-	loginDevice,
-	loginLocation,
-	loginIp,
-}: YelpRecentLoginEmailProps) => {
-	const formattedDate = new Intl.DateTimeFormat("en", {
-		dateStyle: "long",
-		timeStyle: "short",
-	}).format(loginDate);
+export const sgfDevNightEmail = () => {
+	const eventsTitle = "My Wireless Hacking Toy Box";
+	const eventSpeaker = "Chris Kincaid";
+	const eventSpeakersGroup = "Springfield Devs";
+	const descriptionParagraph1 =
+		"Explore the realm of wireless auditing tools! This session explores popular wireless auditing tools, featuring devices like thumb-drive-sized NICs, external wireless adapters, WiFi Pineapples, Flipper Zero, Pwnagotchi, and custom Arduino-type boards designed for ethical WiFi hacking practice or group games.";
+	const descriptionParagraph2 =
+		"Disclaimer: Ethical hacking only! Unauthorized access or malicious actions towards any wireless network without expressed permissions is illegal and not condoned. The topics covered in this session are intended for entertainment, knowledge reinforcement, and emphasizing the importance of strong wireless security.";
+	const descriptionParagraph3 =
+		"Note: Due to the nature of this kind of event, it will have to be in-person only event (no twitch stream); however, we will be posting a recording of the event in the weeks following.";
+	const discordLink = "https://discord.com/invite/VNNJwJk";
+	const eventMeetupLink = "https://www.meetup.com/sgfdevs/events/300461471";
+	const developerProfileLink = "https://sgf.dev/register";
+	const twitchLink = "https://www.twitch.tv/sgfdevs";
 
 	return (
 		<Html>
 			<Head />
-			<Preview>Yelp recent login</Preview>
+			<Preview>{eventsTitle}</Preview>
 			<Body style={main}>
 				<Container>
-					<Section style={logo}>
-						<Img src={`${baseUrl}/static/yelp-logo.png`} />
-					</Section>
-
 					<Section style={content}>
 						<Row>
-							<Img
-								style={image}
-								width={620}
-								src={`${baseUrl}/static/yelp-header.png`}
-							/>
+							<Column style={emailHeader}>
+								<Img
+									style={{ maxWidth: "100%" }}
+									src={`${baseUrl}/emailHeader.png`}
+								/>
+								<Heading style={emailHeadingText}>
+									Dev Night: In-Person + Online
+								</Heading>
+								<Heading style={emailHeadingText}>
+									Wednesday, May 1st at 6:00 PM
+								</Heading>
+								<Container style={centered}>
+									<Button style={buttonStyle} href={eventMeetupLink}>
+										RSVP on Meetup
+									</Button>
+								</Container>
+								<Container style={centered}>
+									<Button style={buttonStyle} href={discordLink}>
+										Join the Discord
+									</Button>
+								</Container>
+							</Column>
 						</Row>
 
 						<Row style={{ ...boxInfos, paddingBottom: "0" }}>
 							<Column>
-								<Heading>Dev Night: In-Person + Online</Heading>
-								<Heading>Wednesday, May 1st at 6:00 PM</Heading>
-								<Text>RSVP on Meetup</Text>
-								<Text>Join the Discord</Text>
-								<Row>
+								<Row style={{ marginBottom: "10px" }}>
 									<Column style={eventDescription}>
-										<Text style={eventTitle}>My Wireless Hacking Toy Box</Text>
-										<Text style={eventHosts}>Presented by Chris Kincaid</Text>
-										<Text style={eventGroup}>Springfield Devs</Text>
+										<Text style={eventTitle}>{eventsTitle}</Text>
+										<Text style={eventHosts}>Presented by {eventSpeaker}</Text>
+										<Text style={eventGroup}>{eventSpeakersGroup}</Text>
 										<Text>
-											Explore the realm of wireless auditing tools! This session
-											explores popular wireless auditing tools, featuring
-											devices like thumb-drive-sized NICs, external wireless
-											adapters, WiFi Pineapples, Flipper Zero, Pwnagotchi, and
-											custom Arduino-type boards designed for ethical WiFi
-											hacking practice or group games.
+											{descriptionParagraph1}
+											{descriptionParagraph2.length > 0 && (
+												<>
+													<br />
+													<br />
+													{descriptionParagraph2}
+												</>
+											)}
+											{descriptionParagraph3.length > 0 && (
+												<>
+													<br />
+													<br />
+													{descriptionParagraph3}
+												</>
+											)}
 										</Text>
-										<Text>
-											Disclaimer: Ethical hacking only! Unauthorized access or
-											malicious actions towards any wireless network without
-											expressed permissions is illegal and not condoned. The
-											topics covered in this session are intended for
-											entertainment, knowledge reinforcement, and emphasizing
-											the importance of strong wireless security.
-										</Text>
-										<Text>
-											Note: Due to the nature of this kind of event, it will
-											have to be in-person only event (no twitch stream);
-											however, we will be posting a recording of the event in
-											the weeks following.
+										<Text style={italics}>
+											For dev night agenda, parking map, etc check out the
+											details on the meetup page by clicking the "Meetup
+											Details" button below.
 										</Text>
 									</Column>
 								</Row>
 								<Row>
 									<Column>
-										<Text>Watch on Springfield Devs Twitch</Text>
-										<Text>Meetup Details</Text>
+										<Container style={centered}>
+											<Button style={buttonStyle} href={twitchLink}>
+												Watch on Springfield Devs Twitch
+											</Button>
+										</Container>
+										<Container style={centered}>
+											<Button style={buttonStyle} href={eventMeetupLink}>
+												Meetup Details
+											</Button>
+										</Container>
 									</Column>
 								</Row>
 								<Text style={sectionTitle}>Our Sponsors</Text>
 								<Row>
 									<Column style={sponsorColumn}>
-										<Img src={`${baseUrl}/static/1519906478800.jpg`} />
-										<Img src={`${baseUrl}/static/yelp-logo.png`} />
-										<Img src={`${baseUrl}/static/yelp-logo.png`} />
+										<Link href={'https://logicforte.com/'}>
+										<Img
+											style={imageStyle}
+											src={`${baseSponsorUrl}/logic-forte.jpg`}
+										/></Link>
+										<Link href={'https://efactory.missouristate.edu/'}>
+										<Img
+											style={imageStyle}
+											src={`${baseSponsorUrl}/efactory.jpg`}
+										/></Link>
+										<Link href={'https://warehqlabs.com/'}>
+										<Img
+											style={imageStyle}
+											src={`${baseSponsorUrl}/wareHq.png`}
+										/></Link>
 									</Column>
 									<Column style={sponsorColumn}>
-										<Img src={`${baseUrl}/static/yelp-logo.png`} />
-										<Img src={`${baseUrl}/static/yelp-logo.png`} />
-										<Img src={`${baseUrl}/static/yelp-logo.png`} />
+										<Link href={'https://www.codefiworks.com/'}>
+										<Img
+											style={imageStyle}
+											src={`${baseSponsorUrl}/codefi.jpg`}
+										/></Link>
+										<Link href={'https://hearo.net/'}>
+										<Img
+											style={imageStyle}
+											src={`${baseSponsorUrl}/hearo.jpg`}
+										/></Link>
+										<Link href={'https://edwardjrice.com/'}>
+										<Img
+											style={imageStyle}
+											src={`${baseSponsorUrl}/ejRiceCompany.png`}
+										/></Link>
+										<Link href={'https://www.mostlyserious.io/'}>
+										<Img
+											style={imageStyle}
+											src={`${baseSponsorUrl}/mostlySerious.jpg`}
+										/></Link>
 									</Column>
 									<Column style={sponsorColumn}>
-										<Img src={`${baseUrl}/static/yelp-logo.png`} />
-										<Img src={`${baseUrl}/static/yelp-logo.png`} />
-										<Img src={`${baseUrl}/static/yelp-logo.png`} />
+										<Link href={'https://www.buildmidwestern.com/'}>
+										<Img
+											style={imageStyle}
+											src={`${baseSponsorUrl}/midwestern.jpg`}
+										/></Link>
+										<Link href={'https://www.nlsnow.com/'}>
+										<Img
+											style={imageStyle}
+											src={`${baseSponsorUrl}/nls.png`}
+										/></Link>
+										<Link href={'https://sgftechcouncil.com/'}>
+										<Img
+											style={imageStyle}
+											src={`${baseSponsorUrl}/stc.png`}
+										/>
+										</Link>
 									</Column>
 								</Row>
 								<Text style={sectionTitle}>
@@ -121,7 +175,10 @@ export const YelpRecentLoginEmail = ({
 								</Text>
 								<Row>
 									<Column>
-										<Img src={`${baseUrl}/static/yelp-logo.png`} />
+										<Img
+											style={{ maxWidth: "100%" }}
+											src={`${baseUrl}/devProfiles.png`}
+										/>
 										<Text>
 											Join over 50 local devs and create a free profile!
 										</Text>
@@ -131,50 +188,60 @@ export const YelpRecentLoginEmail = ({
 											and gives you the opportunity to showcase your skills as a
 											developer.
 										</Text>
-										<Text>Profile is not required to attend SGF Dev events.</Text>
-										<Text>Create a Profile Here</Text>
+										<Text style={italics}>
+											Profile is not required to attend SGF Dev events.
+										</Text>
+										<Container style={centered}>
+											<Button style={buttonStyle} href={developerProfileLink}>
+												Create a Profile Here
+											</Button>
+										</Container>
 									</Column>
 								</Row>
 							</Column>
 						</Row>
 					</Section>
-
-					<Section style={containerImageFooter}>
-						<Img
-							style={image}
-							width={620}
-							src={`${baseUrl}/static/yelp-footer.png`}
-						/>
-					</Section>
-
-					<Text
-						style={{
-							textAlign: "center",
-							fontSize: 12,
-							color: "rgb(0,0,0, 0.7)",
-						}}
-					>
-						© 2022 | Yelp Inc., 350 Mission Street, San Francisco, CA 94105,
-						U.S.A. | www.yelp.com
-					</Text>
 				</Container>
 			</Body>
 		</Html>
 	);
 };
 
-YelpRecentLoginEmail.PreviewProps = {
-	userFirstName: "Alan",
-	loginDate: new Date("September 7, 2022, 10:58 am"),
-	loginDevice: "Chrome on Mac OS X",
-	loginLocation: "Upland, California, United States",
-	loginIp: "47.149.53.167",
-} as YelpRecentLoginEmailProps;
+export default sgfDevNightEmail;
 
-export default YelpRecentLoginEmail;
+const italics = {
+	fontStyle: "italic",
+};
+
+const emailHeadingText = {
+	textAlign: "center" as const,
+	color: "white",
+};
+
+const emailHeader = {
+	backgroundColor: "#153557",
+};
+
+const centered = {
+	textAlign: "center" as const,
+	marginBottom: "10px",
+};
+
+const buttonStyle = {
+	padding: "18px",
+	borderRadius: "8px",
+	backgroundColor: "#4caad8",
+	color: "white",
+	cursor: "pointer",
+};
 
 const sponsorColumn = {
 	width: "33%",
+};
+
+const imageStyle = {
+	maxWidth: 'calc(100% - 20px)',
+	padding: "15px",
 };
 
 const eventTitle = {
@@ -204,7 +271,7 @@ const sectionTitle = {
 	backgroundColor: "#153557",
 	fontSize: "16px",
 	padding: "18px",
-	textAlign: "center",
+	textAlign: "center" as const,
 	borderRadius: "24px",
 	fontWeight: "bold",
 };
