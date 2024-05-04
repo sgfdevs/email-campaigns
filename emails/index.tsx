@@ -15,10 +15,9 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-const baseUrl = "http://localhost:3000/static";
-const baseSponsorUrl = "http://localhost:3000/static/sponsors";
+const baseUrl = "https://newsletter.sgf.dev/uploads"// "http://localhost:3000/static";
 
-export const sgfDevNightEmail = () => {
+export const SgfDevNightEmail = () => {
 	const eventsTitle = "My Wireless Hacking Toy Box";
 	const eventSpeaker = "Chris Kincaid";
 	const eventSpeakersGroup = "Springfield Devs";
@@ -38,9 +37,9 @@ export const sgfDevNightEmail = () => {
 			<Head />
 			<Preview>{eventsTitle}</Preview>
 			<Body style={main}>
-				<Container>
-					<Section style={content}>
-						<Row>
+				<Container style={noBorder}>
+					<Section style={{...content, ...noBorder}}>
+						<Row style={noBorder}>
 							<Column style={emailHeader}>
 								<Img
 									style={{ maxWidth: "100%" }}
@@ -52,22 +51,22 @@ export const sgfDevNightEmail = () => {
 								<Heading style={emailHeadingText}>
 									Wednesday, May 1st at 6:00 PM
 								</Heading>
-								<Container style={centered}>
+								<div style={centered}>
 									<Button style={buttonStyle} href={eventMeetupLink}>
 										RSVP on Meetup
 									</Button>
-								</Container>
-								<Container style={centered}>
+								</div>
+								<div style={centered}>
 									<Button style={buttonStyle} href={discordLink}>
 										Join the Discord
 									</Button>
-								</Container>
+								</div>
 							</Column>
 						</Row>
 
-						<Row style={{ ...boxInfos, paddingBottom: "0" }}>
+						<Row style={{ ...boxInfos, ...noBorder, paddingBottom: "0" }}>
 							<Column>
-								<Row style={{ marginBottom: "10px" }}>
+								<Row style={{ ...noBorder, marginBottom: "10px" }}>
 									<Column style={eventDescription}>
 										<Text style={eventTitle}>{eventsTitle}</Text>
 										<Text style={eventHosts}>Presented by {eventSpeaker}</Text>
@@ -96,76 +95,76 @@ export const sgfDevNightEmail = () => {
 										</Text>
 									</Column>
 								</Row>
-								<Row>
+								<Row style={noBorder}>
 									<Column>
-										<Container style={centered}>
+										<div style={centered}>
 											<Button style={buttonStyle} href={twitchLink}>
 												Watch on Springfield Devs Twitch
 											</Button>
-										</Container>
-										<Container style={centered}>
+										</div>
+										<div style={centered}>
 											<Button style={buttonStyle} href={eventMeetupLink}>
 												Meetup Details
 											</Button>
-										</Container>
+										</div>
 									</Column>
 								</Row>
 								<Text style={sectionTitle}>Our Sponsors</Text>
-								<Row>
+								<Row style={noBorder}>
 									<Column style={sponsorColumn}>
 										<Link href={'https://logicforte.com/'}>
 										<Img
 											style={imageStyle}
-											src={`${baseSponsorUrl}/logic-forte.jpg`}
+											src={`${baseUrl}/logic-forte.jpg`}
 										/></Link>
 										<Link href={'https://efactory.missouristate.edu/'}>
 										<Img
 											style={imageStyle}
-											src={`${baseSponsorUrl}/efactory.jpg`}
+											src={`${baseUrl}/efactory.jpg`}
 										/></Link>
 										<Link href={'https://warehqlabs.com/'}>
 										<Img
 											style={imageStyle}
-											src={`${baseSponsorUrl}/wareHq.png`}
+											src={`${baseUrl}/wareHq.png`}
 										/></Link>
 									</Column>
 									<Column style={sponsorColumn}>
 										<Link href={'https://www.codefiworks.com/'}>
 										<Img
 											style={imageStyle}
-											src={`${baseSponsorUrl}/codefi.jpg`}
+											src={`${baseUrl}/codefi.jpg`}
 										/></Link>
 										<Link href={'https://hearo.net/'}>
 										<Img
 											style={imageStyle}
-											src={`${baseSponsorUrl}/hearo.jpg`}
+											src={`${baseUrl}/hearo.jpg`}
 										/></Link>
 										<Link href={'https://edwardjrice.com/'}>
 										<Img
 											style={imageStyle}
-											src={`${baseSponsorUrl}/ejRiceCompany.png`}
+											src={`${baseUrl}/ejRiceCompany.png`}
 										/></Link>
 										<Link href={'https://www.mostlyserious.io/'}>
 										<Img
 											style={imageStyle}
-											src={`${baseSponsorUrl}/mostlySerious.jpg`}
+											src={`${baseUrl}/mostlySerious.jpg`}
 										/></Link>
 									</Column>
 									<Column style={sponsorColumn}>
 										<Link href={'https://www.buildmidwestern.com/'}>
 										<Img
 											style={imageStyle}
-											src={`${baseSponsorUrl}/midwestern.jpg`}
+											src={`${baseUrl}/midwestern.jpg`}
 										/></Link>
 										<Link href={'https://www.nlsnow.com/'}>
 										<Img
 											style={imageStyle}
-											src={`${baseSponsorUrl}/nls.png`}
+											src={`${baseUrl}/nls.png`}
 										/></Link>
 										<Link href={'https://sgftechcouncil.com/'}>
 										<Img
 											style={imageStyle}
-											src={`${baseSponsorUrl}/stc.png`}
+											src={`${baseUrl}/stc.png`}
 										/>
 										</Link>
 									</Column>
@@ -173,7 +172,7 @@ export const sgfDevNightEmail = () => {
 								<Text style={sectionTitle}>
 									Do You Have a Springfield Devs Profile Yet?
 								</Text>
-								<Row>
+								<Row style={noBorder}>
 									<Column>
 										<Img
 											style={{ maxWidth: "100%" }}
@@ -191,11 +190,11 @@ export const sgfDevNightEmail = () => {
 										<Text style={italics}>
 											Profile is not required to attend SGF Dev events.
 										</Text>
-										<Container style={centered}>
+										<div style={centered}>
 											<Button style={buttonStyle} href={developerProfileLink}>
 												Create a Profile Here
 											</Button>
-										</Container>
+										</div>
 									</Column>
 								</Row>
 							</Column>
@@ -207,7 +206,11 @@ export const sgfDevNightEmail = () => {
 	);
 };
 
-export default sgfDevNightEmail;
+export default SgfDevNightEmail;
+
+const noBorder = {
+	border: 'none'
+}
 
 const italics = {
 	fontStyle: "italic",
