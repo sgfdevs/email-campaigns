@@ -14,10 +14,13 @@
 - implement responsive design
 - find system for rendering email html
 
+05/29/2024
+- remove unused styles
+- figure out click tracking system
+
 <hr>
 
 Backlog
-- remove unused styles
 - dynamically generate sponsors from array of sponsor images and website links
 - add in structure for multiple event dev nights
 - modify description structure so you don't need to break up descriptions into paragraphs
