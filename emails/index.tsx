@@ -52,12 +52,12 @@ export const SgfDevNightEmail = () => {
 									Wednesday, May 1st at 6:00 PM
 								</Heading>
 								<div style={centered}>
-									<Button style={buttonStyle} href={eventMeetupLink}>
+									<Button style={buttonStyle} href={`{{ TrackLink '${eventMeetupLink}' }}`}>
 										RSVP on Meetup
 									</Button>
 								</div>
 								<div style={centered}>
-									<Button style={buttonStyle} href={discordLink}>
+									<Button style={buttonStyle} href={`{{ TrackLink '${discordLink}' }}`}>
 										Join the Discord
 									</Button>
 								</div>
@@ -98,12 +98,12 @@ export const SgfDevNightEmail = () => {
 								<Row style={noBorder}>
 									<Column>
 										<div style={centered}>
-											<Button style={buttonStyle} href={twitchLink}>
+											<Button style={buttonStyle} href={`{{ TrackLink '${twitchLink}' }}`}>
 												Watch on Springfield Devs Twitch
 											</Button>
 										</div>
 										<div style={centered}>
-											<Button style={buttonStyle} href={eventMeetupLink}>
+											<Button style={buttonStyle} href={`{{ TrackLink '${eventMeetupLink}' }}`}>
 												Meetup Details
 											</Button>
 										</div>
@@ -191,7 +191,7 @@ export const SgfDevNightEmail = () => {
 											Profile is not required to attend SGF Dev events.
 										</Text>
 										<div style={centered}>
-											<Button style={buttonStyle} href={developerProfileLink}>
+											<Button style={buttonStyle} href={`{{ TrackLink '${developerProfileLink}' }}`}>
 												Create a Profile Here
 											</Button>
 										</div>
