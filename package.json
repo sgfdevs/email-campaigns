@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "email dev",
     "export": "email export && tsx updateTrackingLinks.ts",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
