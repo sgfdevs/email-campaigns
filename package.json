@@ -2,10 +2,10 @@
   "name": "react-email-test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "email dev",
-    "export": "email export && node updateTrackingLinks",
+    "export": "email export && tsx updateTrackingLinks.ts",
     "lint": "eslint ."
   },
   "repository": {
@@ -27,6 +27,7 @@
     "@eslint/js": "^9.5.0",
     "@types/eslint__js": "^8.42.3",
     "eslint": "^8.57.0",
+    "tsx": "^4.15.7",
     "typescript": "^5.5.2",
     "typescript-eslint": "^7.13.1"
   }
