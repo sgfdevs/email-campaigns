@@ -1,4 +1,5 @@
 import { MeetupEvent } from './getNextEvent';
+import { EventDetails } from '../../emails/sgfdevs/devNight';
 
 export function parseEventDetails(event: MeetupEvent): EventDetails {
     const updatedDescription = event.description.replace(/\\-/g, '-');
@@ -37,17 +38,8 @@ export function parseEventDetails(event: MeetupEvent): EventDetails {
 
     return {
         presentations,
+        title: event.title,
         link: event.eventUrl,
+        datetime: new Date(event.dateTime),
     };
-}
-
-interface EventDetails {
-    presentations: Presentation[];
-    link: string;
-}
-
-interface Presentation {
-    title: string;
-    speaker: string;
-    description: string;
 }

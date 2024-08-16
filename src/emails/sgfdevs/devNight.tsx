@@ -20,23 +20,21 @@ import {
     SGF_DEVS_PROFILE_LINK,
     SGF_DEVS_TWITCH_LINK,
 } from '../../config';
+import { formatInTimeZone } from 'date-fns-tz';
+import { Fragment } from 'react';
 
-export const SgfDevNightEmail = () => {
-    const eventsTitle = 'My Wireless Hacking Toy Box';
-    const eventSpeaker = 'Chris Kincaid';
-    const eventSpeakersGroup = 'Springfield Devs';
-    const descriptionParagraph1 =
-        'Explore the realm of wireless auditing tools! This session explores popular wireless auditing tools, featuring devices like thumb-drive-sized NICs, external wireless adapters, WiFi Pineapples, Flipper Zero, Pwnagotchi, and custom Arduino-type boards designed for ethical WiFi hacking practice or group games.';
-    const descriptionParagraph2 =
-        'Disclaimer: Ethical hacking only! Unauthorized access or malicious actions towards any wireless network without expressed permissions is illegal and not condoned. The topics covered in this session are intended for entertainment, knowledge reinforcement, and emphasizing the importance of strong wireless security.';
-    const descriptionParagraph3 =
-        'Note: Due to the nature of this kind of event, it will have to be in-person only event (no twitch stream); however, we will be posting a recording of the event in the weeks following.';
-    const eventMeetupLink = 'https://www.meetup.com/sgfdevs/events/300461471';
+const centralTimeZone = 'America/Chicago';
 
+export const SgfDevNightEmail = ({
+    presentations,
+    datetime,
+    title,
+    link,
+}: EventDetails) => {
     return (
         <Html>
             <Head />
-            <Preview>{eventsTitle}</Preview>
+            <Preview>{title}</Preview>
             <Body style={main}>
                 <Container style={noBorder}>
                     <Section style={{ ...content, ...noBorder }}>
@@ -50,12 +48,16 @@ export const SgfDevNightEmail = () => {
                                     Dev Night: In-Person + Online
                                 </Heading>
                                 <Heading style={emailHeadingText}>
-                                    Wednesday, May 1st at 6:00 PM
+                                    {formatInTimeZone(
+                                        datetime,
+                                        centralTimeZone,
+                                        "EEEE, MMMM do 'at' h:mm aa",
+                                    )}
                                 </Heading>
                                 <div style={centered}>
                                     <Button
                                         style={buttonStyle}
-                                        href={`{{ TrackLink '${eventMeetupLink}' }}`}
+                                        href={`${link}@TrackLink`}
                                     >
                                         RSVP on Meetup
                                     </Button>
@@ -63,7 +65,7 @@ export const SgfDevNightEmail = () => {
                                 <div style={centered}>
                                     <Button
                                         style={buttonStyle}
-                                        href={`{{ TrackLink '${SGF_DEVS_DISCORD_LINK}' }}`}
+                                        href={`${SGF_DEVS_DISCORD_LINK}@TrackLink`}
                                     >
                                         Join the Discord
                                     </Button>
@@ -86,34 +88,12 @@ export const SgfDevNightEmail = () => {
                                     }}
                                 >
                                     <Column style={eventDescription}>
-                                        <Text style={eventTitle}>
-                                            {eventsTitle}
-                                        </Text>
-                                        <Text style={eventHosts}>
-                                            Presented by {eventSpeaker}
-                                        </Text>
-                                        <Text style={eventGroup}>
-                                            {eventSpeakersGroup}
-                                        </Text>
-                                        <Text>
-                                            {descriptionParagraph1}
-                                            {descriptionParagraph2.length >
-                                                0 && (
-                                                <>
-                                                    <br />
-                                                    <br />
-                                                    {descriptionParagraph2}
-                                                </>
-                                            )}
-                                            {descriptionParagraph3.length >
-                                                0 && (
-                                                <>
-                                                    <br />
-                                                    <br />
-                                                    {descriptionParagraph3}
-                                                </>
-                                            )}
-                                        </Text>
+                                        {presentations.map((presentation) => (
+                                            <PresentationSection
+                                                key={presentation.title}
+                                                {...presentation}
+                                            />
+                                        ))}
                                         <Text style={italics}>
                                             For dev night agenda, parking map,
                                             etc check out the details on the
@@ -127,7 +107,7 @@ export const SgfDevNightEmail = () => {
                                         <div style={centered}>
                                             <Button
                                                 style={buttonStyle}
-                                                href={`{{ TrackLink '${SGF_DEVS_TWITCH_LINK}' }}`}
+                                                href={`${SGF_DEVS_TWITCH_LINK}@TrackLink`}
                                             >
                                                 Watch on Springfield Devs Twitch
                                             </Button>
@@ -135,7 +115,7 @@ export const SgfDevNightEmail = () => {
                                         <div style={centered}>
                                             <Button
                                                 style={buttonStyle}
-                                                href={`{{ TrackLink '${eventMeetupLink}' }}`}
+                                                href={`${link}@TrackLink`}
                                             >
                                                 Meetup Details
                                             </Button>
@@ -257,7 +237,7 @@ export const SgfDevNightEmail = () => {
                                         <div style={centered}>
                                             <Button
                                                 style={buttonStyle}
-                                                href={`{{ TrackLink '${SGF_DEVS_PROFILE_LINK}' }}`}
+                                                href={`${SGF_DEVS_PROFILE_LINK}@TrackLink`}
                                             >
                                                 Create a Profile Here
                                             </Button>
@@ -272,6 +252,28 @@ export const SgfDevNightEmail = () => {
         </Html>
     );
 };
+
+export const PresentationSection = (presentation: Presentation) => (
+    <>
+        <Text style={eventTitle}>{presentation.title}</Text>
+        <Text style={eventHosts}>Presented by {presentation.speaker}</Text>
+        <Text>
+            {presentation.description
+                .split('\n')
+                .map((paragraph, index, arr) => (
+                    <Fragment key={paragraph}>
+                        {paragraph}
+                        {arr.length - 1 !== index ? (
+                            <>
+                                <br />
+                                <br />
+                            </>
+                        ) : null}
+                    </Fragment>
+                ))}
+        </Text>
+    </>
+);
 
 export default SgfDevNightEmail;
 
@@ -326,8 +328,6 @@ const eventHosts = {
     fontWeight: 'bold',
 };
 
-const eventGroup = eventHosts;
-
 const eventDescription = {
     color: 'white',
     backgroundColor: '#153557',
@@ -361,3 +361,16 @@ const content = {
 const boxInfos = {
     padding: '20px',
 };
+
+export interface EventDetails {
+    presentations: Presentation[];
+    title: string;
+    link: string;
+    datetime: Date;
+}
+
+export interface Presentation {
+    title: string;
+    speaker: string;
+    description: string;
+}
