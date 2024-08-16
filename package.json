@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "email dev --dir src/emails",
     "export": "email export --dir src/emails && tsx updateTrackingLinks.ts",
+    "dev-night-campaign": "tsx src/scripts/devNightCampaign",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
