@@ -14,8 +14,7 @@ import {
     Text,
 } from '@react-email/components';
 import * as React from 'react';
-
-const baseUrl = 'https://newsletter.sgf.dev/uploads'; // "http://localhost:3000/static";
+import { ASSET_BASE_URL } from '../config';
 
 export const SgfDevNightEmail = () => {
     const eventsTitle = 'My Wireless Hacking Toy Box';
@@ -43,7 +42,7 @@ export const SgfDevNightEmail = () => {
                             <Column style={emailHeader}>
                                 <Img
                                     style={{ maxWidth: '100%' }}
-                                    src={`${baseUrl}/emailHeader.png`}
+                                    src={`${ASSET_BASE_URL}/emailHeader.png`}
                                 />
                                 <Heading style={emailHeadingText}>
                                     Dev Night: In-Person + Online
@@ -147,7 +146,7 @@ export const SgfDevNightEmail = () => {
                                         <Link href={'https://logicforte.com/'}>
                                             <Img
                                                 style={imageStyle}
-                                                src={`${baseUrl}/logic-forte.jpg`}
+                                                src={`${ASSET_BASE_URL}/logic-forte.jpg`}
                                             />
                                         </Link>
                                         <Link
@@ -157,13 +156,13 @@ export const SgfDevNightEmail = () => {
                                         >
                                             <Img
                                                 style={imageStyle}
-                                                src={`${baseUrl}/efactory.jpg`}
+                                                src={`${ASSET_BASE_URL}/efactory.jpg`}
                                             />
                                         </Link>
                                         <Link href={'https://warehqlabs.com/'}>
                                             <Img
                                                 style={imageStyle}
-                                                src={`${baseUrl}/wareHq.png`}
+                                                src={`${ASSET_BASE_URL}/wareHq.png`}
                                             />
                                         </Link>
                                     </Column>
@@ -175,19 +174,19 @@ export const SgfDevNightEmail = () => {
                                         >
                                             <Img
                                                 style={imageStyle}
-                                                src={`${baseUrl}/codefi.jpg`}
+                                                src={`${ASSET_BASE_URL}/codefi.jpg`}
                                             />
                                         </Link>
                                         <Link href={'https://hearo.net/'}>
                                             <Img
                                                 style={imageStyle}
-                                                src={`${baseUrl}/hearo.jpg`}
+                                                src={`${ASSET_BASE_URL}/hearo.jpg`}
                                             />
                                         </Link>
                                         <Link href={'https://edwardjrice.com/'}>
                                             <Img
                                                 style={imageStyle}
-                                                src={`${baseUrl}/ejRiceCompany.png`}
+                                                src={`${ASSET_BASE_URL}/ejRiceCompany.png`}
                                             />
                                         </Link>
                                         <Link
@@ -197,7 +196,7 @@ export const SgfDevNightEmail = () => {
                                         >
                                             <Img
                                                 style={imageStyle}
-                                                src={`${baseUrl}/mostlySerious.jpg`}
+                                                src={`${ASSET_BASE_URL}/mostlySerious.jpg`}
                                             />
                                         </Link>
                                     </Column>
@@ -209,13 +208,13 @@ export const SgfDevNightEmail = () => {
                                         >
                                             <Img
                                                 style={imageStyle}
-                                                src={`${baseUrl}/midwestern.jpg`}
+                                                src={`${ASSET_BASE_URL}/midwestern.jpg`}
                                             />
                                         </Link>
                                         <Link href={'https://www.nlsnow.com/'}>
                                             <Img
                                                 style={imageStyle}
-                                                src={`${baseUrl}/nls.png`}
+                                                src={`${ASSET_BASE_URL}/nls.png`}
                                             />
                                         </Link>
                                         <Link
@@ -223,7 +222,7 @@ export const SgfDevNightEmail = () => {
                                         >
                                             <Img
                                                 style={imageStyle}
-                                                src={`${baseUrl}/stc.png`}
+                                                src={`${ASSET_BASE_URL}/stc.png`}
                                             />
                                         </Link>
                                     </Column>
@@ -235,7 +234,7 @@ export const SgfDevNightEmail = () => {
                                     <Column>
                                         <Img
                                             style={{ maxWidth: '100%' }}
-                                            src={`${baseUrl}/devProfiles.png`}
+                                            src={`${ASSET_BASE_URL}/devProfiles.png`}
                                         />
                                         <Text>
                                             Join over 50 local devs and create a

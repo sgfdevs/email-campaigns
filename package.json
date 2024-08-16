@@ -4,8 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "dev": "email dev",
-    "export": "email export && tsx updateTrackingLinks.ts",
+    "dev": "email dev --dir src/emails",
+    "export": "email export --dir src/emails && tsx updateTrackingLinks.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/cb0806151/react-email-test#readme",
   "dependencies": {
     "@react-email/components": "0.0.15",
+    "dotenv": "^16.4.5",
     "react-email": "2.1.0"
   },
   "devDependencies": {
