@@ -216,7 +216,7 @@ export const SgfDevNightEmail = ({
                                     <Column>
                                         <Img
                                             style={{ maxWidth: '100%' }}
-                                            src={`${ASSET_BASE_URL}/devProfiles.png`}
+                                            src={`${ASSET_BASE_URL}/dev-profiles.png`}
                                         />
                                         <Text>
                                             Join over 50 local devs and create a

@@ -14,3 +14,14 @@ export const SGF_MEETUP_API_BASE_URL =
 export const SGF_MEETUP_API_TOKEN =
     process.env.SGF_MEETUP_API_TOKEN ??
     _throw('SGF_MEETUP_API_TOKEN env var not set');
+
+export const LISTMONK_URL =
+    process.env.LISTMONK_URL ?? _throw('LISTMONK_URL env var not set');
+
+export const LISTMONK_USERNAME =
+    process.env.LISTMONK_USERNAME ??
+    _throw('LISTMONK_USERNAME env var not set');
+
+export const LISTMONK_PASSWORD =
+    process.env.LISTMONK_PASSWORD ??
+    _throw('LISTMONK_PASSWORD env var not set');
