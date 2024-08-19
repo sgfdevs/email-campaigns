@@ -8,6 +8,7 @@ import {
     Html,
     Img,
     Link,
+    Preview,
     Row,
     Section,
     Text,
@@ -46,12 +47,14 @@ const socialLinks = [
 export const Layout = ({ title, children }: LayoutProps) => (
     <Html>
         <Head />
+        <Preview>{title}</Preview>
         <Body style={main}>
             <Container>
                 <Section>
                     <Row style={header}>
                         <Column style={logo}>
                             <Img
+                                alt="Method Conference Logo"
                                 style={{ height: '40px', margin: '0 auto' }}
                                 src={`${ASSET_BASE_URL}/methodconf-2024-logo.png`}
                             />
@@ -71,22 +74,24 @@ export const Layout = ({ title, children }: LayoutProps) => (
                     <Row style={{ marginBottom: '20px' }}>
                         <Column style={centerLinks}>
                             {socialLinks.map((socialLink, index, arr) => (
-                                <Link
+                                <Text
                                     style={{
+                                        display: 'inline',
                                         marginRight:
                                             arr.length - 1 !== index
                                                 ? '60px'
                                                 : '0px',
                                     }}
                                     key={socialLink.url}
-                                    href={`${socialLink.url}@TrackLink`}
                                 >
-                                    <Img
-                                        style={socialImage}
-                                        src={`${ASSET_BASE_URL}/${socialLink.iconUrl}`}
-                                        alt={socialLink.alt}
-                                    />
-                                </Link>
+                                    <Link href={`${socialLink.url}@TrackLink`}>
+                                        <Img
+                                            style={socialImage}
+                                            src={`${ASSET_BASE_URL}/${socialLink.iconUrl}`}
+                                            alt={socialLink.alt}
+                                        />
+                                    </Link>
+                                </Text>
                             ))}
                         </Column>
                     </Row>
