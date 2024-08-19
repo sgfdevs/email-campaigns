@@ -1,0 +1,14 @@
+name: "Create Dev Night Email Campaign"
+on:
+  workflow_dispatch:
+jobs:
+  dev-night-campaign:
+    name: Dev Night Campaign
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - run: npm ci
+      - run: npm run dev-night-campaign

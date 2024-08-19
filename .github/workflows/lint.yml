@@ -4,7 +4,7 @@ on:
         branches:
             - main
 jobs:
-    lintk:
+    lint:
         name: Lint PR
         runs-on: ubuntu-latest
         steps:
