@@ -51,7 +51,7 @@ export async function createOrUpdateDraftCampaign(
                     foundCampaign.id,
                     campaignArgs,
                 );
-                break;
+                return;
             case CampaignStatus.finished:
             case CampaignStatus.running:
                 console.log(
