@@ -41,7 +41,7 @@ export const SgfDevNightEmail = ({
                             <Column style={emailHeader}>
                                 <Img
                                     style={{ maxWidth: '100%' }}
-                                    src={`${ASSET_BASE_URL}/emailHeader.png`}
+                                    src={`${ASSET_BASE_URL}/sgfdevs-email-header.png`}
                                 />
                                 <Heading style={emailHeadingText}>
                                     Dev Night: In-Person + Online
@@ -127,7 +127,7 @@ export const SgfDevNightEmail = ({
                                         <Link href={'https://logicforte.com/'}>
                                             <Img
                                                 style={imageStyle}
-                                                src={`${ASSET_BASE_URL}/logic-forte.jpg`}
+                                                src={`${ASSET_BASE_URL}/sgfdevs-logic-forte.jpg`}
                                             />
                                         </Link>
                                         <Link
@@ -137,13 +137,13 @@ export const SgfDevNightEmail = ({
                                         >
                                             <Img
                                                 style={imageStyle}
-                                                src={`${ASSET_BASE_URL}/efactory.jpg`}
+                                                src={`${ASSET_BASE_URL}/sgfdevs-efactory.jpg`}
                                             />
                                         </Link>
                                         <Link href={'https://warehqlabs.com/'}>
                                             <Img
                                                 style={imageStyle}
-                                                src={`${ASSET_BASE_URL}/wareHq.png`}
+                                                src={`${ASSET_BASE_URL}/sgfdevs-ware-hq.png`}
                                             />
                                         </Link>
                                     </Column>
@@ -155,19 +155,19 @@ export const SgfDevNightEmail = ({
                                         >
                                             <Img
                                                 style={imageStyle}
-                                                src={`${ASSET_BASE_URL}/codefi.jpg`}
+                                                src={`${ASSET_BASE_URL}/sgfdevs-codefi.jpg`}
                                             />
                                         </Link>
                                         <Link href={'https://hearo.net/'}>
                                             <Img
                                                 style={imageStyle}
-                                                src={`${ASSET_BASE_URL}/hearo.jpg`}
+                                                src={`${ASSET_BASE_URL}/sgfdevs-hearo.jpg`}
                                             />
                                         </Link>
                                         <Link href={'https://edwardjrice.com/'}>
                                             <Img
                                                 style={imageStyle}
-                                                src={`${ASSET_BASE_URL}/ejRiceCompany.png`}
+                                                src={`${ASSET_BASE_URL}/sgfdevs-ej-rice.png`}
                                             />
                                         </Link>
                                         <Link
@@ -177,7 +177,7 @@ export const SgfDevNightEmail = ({
                                         >
                                             <Img
                                                 style={imageStyle}
-                                                src={`${ASSET_BASE_URL}/mostlySerious.jpg`}
+                                                src={`${ASSET_BASE_URL}/sgfdevs-mostly-serious.jpg`}
                                             />
                                         </Link>
                                     </Column>
@@ -189,13 +189,13 @@ export const SgfDevNightEmail = ({
                                         >
                                             <Img
                                                 style={imageStyle}
-                                                src={`${ASSET_BASE_URL}/midwestern.jpg`}
+                                                src={`${ASSET_BASE_URL}/sgfdevs-midwestern.jpg`}
                                             />
                                         </Link>
                                         <Link href={'https://www.nlsnow.com/'}>
                                             <Img
                                                 style={imageStyle}
-                                                src={`${ASSET_BASE_URL}/nls.png`}
+                                                src={`${ASSET_BASE_URL}/sgfdevs-nls.png`}
                                             />
                                         </Link>
                                         <Link
@@ -203,7 +203,7 @@ export const SgfDevNightEmail = ({
                                         >
                                             <Img
                                                 style={imageStyle}
-                                                src={`${ASSET_BASE_URL}/stc.png`}
+                                                src={`${ASSET_BASE_URL}/sgfdevs-stc.png`}
                                             />
                                         </Link>
                                     </Column>
@@ -215,7 +215,7 @@ export const SgfDevNightEmail = ({
                                     <Column>
                                         <Img
                                             style={{ maxWidth: '100%' }}
-                                            src={`${ASSET_BASE_URL}/dev-profiles.png`}
+                                            src={`${ASSET_BASE_URL}/sgfdevs-dev-profiles.png`}
                                         />
                                         <Text>
                                             Join over 50 local devs and create a
