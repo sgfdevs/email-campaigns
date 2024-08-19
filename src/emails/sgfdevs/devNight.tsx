@@ -1,3 +1,5 @@
+import * as React from 'react';
+import { Fragment } from 'react';
 import {
     Body,
     Button,
@@ -13,7 +15,8 @@ import {
     Section,
     Text,
 } from '@react-email/components';
-import * as React from 'react';
+import { formatInTimeZone } from 'date-fns-tz';
+import { LoremIpsum } from 'lorem-ipsum';
 import {
     ASSET_BASE_URL,
     CENTRAL_TIMEZONE,
@@ -21,8 +24,6 @@ import {
     SGF_DEVS_PROFILE_LINK,
     SGF_DEVS_TWITCH_LINK,
 } from '../../config';
-import { formatInTimeZone } from 'date-fns-tz';
-import { Fragment } from 'react';
 
 export const SgfDevNightEmail = ({
     presentations,
@@ -274,7 +275,38 @@ export const PresentationSection = (presentation: Presentation) => (
     </>
 );
 
-export default SgfDevNightEmail;
+export default () => {
+    const lorem = new LoremIpsum({
+        sentencesPerParagraph: {
+            max: 3,
+            min: 1,
+        },
+        wordsPerSentence: {
+            max: 16,
+            min: 4,
+        },
+    });
+
+    return (
+        <SgfDevNightEmail
+            presentations={[
+                {
+                    title: 'Presentation 1 title',
+                    speaker: 'Speaker 1',
+                    description: lorem.generateParagraphs(2),
+                },
+                {
+                    title: 'Presentation 2 title',
+                    speaker: 'Speaker 2',
+                    description: lorem.generateParagraphs(1),
+                },
+            ]}
+            title="Test Title"
+            datetime={new Date()}
+            link="https://meetup.com/sgfdevs"
+        />
+    );
+};
 
 const noBorder = {
     border: 'none',

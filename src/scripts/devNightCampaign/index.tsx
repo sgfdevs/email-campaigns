@@ -1,7 +1,7 @@
 import { getNextEvent } from './getNextEvent';
 import { parseEventDetails } from './parseEventDetails';
 import { renderAsync } from '@react-email/render';
-import SgfDevNightEmail from '../../emails/sgfdevs/devNight';
+import { SgfDevNightEmail } from '../../emails/sgfdevs/devNight';
 import { createOrUpdateDraftCampaign } from './createOrUpdateDraftCampaign';
 
 async function devNightCampaign(): Promise<void> {
