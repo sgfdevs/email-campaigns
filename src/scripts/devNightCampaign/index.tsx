@@ -2,11 +2,16 @@ import { getNextEvent } from './getNextEvent';
 import { parseEventDetails } from './parseEventDetails';
 import { renderAsync } from '@react-email/render';
 import SgfDevNightEmail from '../../emails/sgfdevs/devNight';
-import * as fs from 'fs';
 import { createOrUpdateDraftCampaign } from './createOrUpdateDraftCampaign';
 
 async function devNightCampaign(): Promise<void> {
     const event = await getNextEvent();
+
+    if (!event) {
+        console.log('no event found, exiting...');
+        return;
+    }
+
     const eventDetails = parseEventDetails(event);
 
     console.log('rendering email template');

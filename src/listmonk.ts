@@ -154,7 +154,7 @@ export interface Campaign {
     body: string;
     altbody: string | null;
     send_at: string | null;
-    status: string;
+    status: CampaignStatus;
     content_type: CampaignContentType;
     tags: string[];
     template_id: number;
@@ -179,6 +179,7 @@ export enum CampaignStatus {
     paused = 'paused',
     running = 'running',
     cancelled = 'cancelled',
+    finished = '',
 }
 
 export const listmonkClient = new ListmonkClient(

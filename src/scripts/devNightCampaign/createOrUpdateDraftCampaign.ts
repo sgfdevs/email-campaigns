@@ -22,11 +22,10 @@ export async function createOrUpdateDraftCampaign(
 
     const res = await listmonkClient.getCampaigns({ query: name });
 
-    const [foundCampaign, ...otherFoundCampaigns] = res.data.results
-        .filter((campaign) => campaign.status === CampaignStatus.draft)
-        .filter((campaign) =>
+    const [foundCampaign, ...otherFoundCampaigns] = res.data.results.filter(
+        (campaign) =>
             campaign.lists.map((list) => list.id).includes(DEV_NIGHT_LIST_ID),
-        );
+    );
 
     if (otherFoundCampaigns.length >= 1) {
         console.log('to many campaigns found, skipping update');
@@ -43,10 +42,28 @@ export async function createOrUpdateDraftCampaign(
     };
 
     if (foundCampaign) {
-        console.log('found existing campaign, updating it');
-        await listmonkClient.updateCampaign(foundCampaign.id, campaignArgs);
-
-        return;
+        switch (foundCampaign.status) {
+            case CampaignStatus.draft:
+            case CampaignStatus.scheduled:
+            case CampaignStatus.paused:
+                console.log('found existing campaign, updating it');
+                await listmonkClient.updateCampaign(
+                    foundCampaign.id,
+                    campaignArgs,
+                );
+                break;
+            case CampaignStatus.finished:
+            case CampaignStatus.running:
+                console.log(
+                    'Campaign already delivered or being delivered, exiting...',
+                );
+                return;
+            case CampaignStatus.cancelled:
+                console.log(
+                    'found a campaign, but it was cancelled, creating a new one',
+                );
+                break;
+        }
     }
 
     console.log('creating new campaign');
