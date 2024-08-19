@@ -2,6 +2,7 @@ import { MeetupEvent } from './getNextEvent';
 import { EventDetails } from '../../emails/sgfdevs/devNight';
 
 export function parseEventDetails(event: MeetupEvent): EventDetails {
+    console.log('parsing out meetup event details');
     const updatedDescription = event.description.replace(/\\-/g, '-');
     const presentationStrings = updatedDescription
         .split('###')
@@ -35,6 +36,10 @@ export function parseEventDetails(event: MeetupEvent): EventDetails {
             description: description,
         };
     });
+
+    console.log(
+        `found ${presentations.length} presentation(s) from Meetup description`,
+    );
 
     return {
         presentations,

@@ -16,14 +16,13 @@ import {
 import * as React from 'react';
 import {
     ASSET_BASE_URL,
+    CENTRAL_TIMEZONE,
     SGF_DEVS_DISCORD_LINK,
     SGF_DEVS_PROFILE_LINK,
     SGF_DEVS_TWITCH_LINK,
 } from '../../config';
 import { formatInTimeZone } from 'date-fns-tz';
 import { Fragment } from 'react';
-
-const centralTimeZone = 'America/Chicago';
 
 export const SgfDevNightEmail = ({
     presentations,
@@ -50,7 +49,7 @@ export const SgfDevNightEmail = ({
                                 <Heading style={emailHeadingText}>
                                     {formatInTimeZone(
                                         datetime,
-                                        centralTimeZone,
+                                        CENTRAL_TIMEZONE,
                                         "EEEE, MMMM do 'at' h:mm aa",
                                     )}
                                 </Heading>

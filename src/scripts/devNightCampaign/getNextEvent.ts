@@ -1,6 +1,7 @@
 import { SGF_MEETUP_API_BASE_URL, SGF_MEETUP_API_TOKEN } from '../../config';
 
 export async function getNextEvent(): Promise<MeetupEvent> {
+    console.log('fetching next meetup event');
     const res: MeetupEventResponse = await fetch(
         `${SGF_MEETUP_API_BASE_URL}/events?group=sgfdevs&next=true`,
         {
