@@ -8,6 +8,7 @@ jobs:
     name: Sync Media
     runs-on: ubuntu-latest
     env:
+      ASSET_BASE_URL: ${{ secrets.ASSET_BASE_URL }}
       SGF_MEETUP_API_BASE_URL: ${{ secrets.SGF_MEETUP_API_BASE_URL }}
       SGF_MEETUP_API_TOKEN: ${{ secrets.SGF_MEETUP_API_TOKEN }}
       LISTMONK_URL: ${{ secrets.LISTMONK_URL }}
