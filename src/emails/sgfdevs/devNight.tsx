@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Fragment } from 'react';
 import {
     Body,
     Button,
@@ -24,6 +23,7 @@ import {
     SGF_DEVS_PROFILE_LINK,
     SGF_DEVS_TWITCH_LINK,
 } from '../../config';
+import { NewLinesToBr } from '../../components/NewLinesToBr';
 
 export const SgfDevNightEmail = ({
     presentations,
@@ -258,19 +258,7 @@ export const PresentationSection = (presentation: Presentation) => (
         <Text style={eventTitle}>{presentation.title}</Text>
         <Text style={eventHosts}>Presented by {presentation.speaker}</Text>
         <Text>
-            {presentation.description
-                .split('\n')
-                .map((paragraph, index, arr) => (
-                    <Fragment key={paragraph}>
-                        {paragraph}
-                        {arr.length - 1 !== index ? (
-                            <>
-                                <br />
-                                <br />
-                            </>
-                        ) : null}
-                    </Fragment>
-                ))}
+            <NewLinesToBr>presentation.description</NewLinesToBr>
         </Text>
     </>
 );
@@ -283,7 +271,7 @@ export default () => {
         },
         wordsPerSentence: {
             max: 16,
-            min: 4,
+            min: 8,
         },
     });
 
