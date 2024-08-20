@@ -258,7 +258,7 @@ export const PresentationSection = (presentation: Presentation) => (
         <Text style={eventTitle}>{presentation.title}</Text>
         <Text style={eventHosts}>Presented by {presentation.speaker}</Text>
         <Text>
-            <NewLinesToBr>presentation.description</NewLinesToBr>
+            <NewLinesToBr>{presentation.description}</NewLinesToBr>
         </Text>
     </>
 );
