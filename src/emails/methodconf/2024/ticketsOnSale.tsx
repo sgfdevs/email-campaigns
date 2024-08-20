@@ -1,16 +1,4 @@
-import {
-    Body,
-    Button,
-    Column,
-    Container,
-    Head,
-    Heading,
-    Html,
-    Img,
-    Row,
-    Section,
-    Text,
-} from '@react-email/components';
+import { Button, Column, Row, Text } from '@react-email/components';
 import * as React from 'react';
 import { LoremIpsum } from 'lorem-ipsum';
 
