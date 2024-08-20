@@ -22,7 +22,7 @@ export const TicketsOnSale = ({ children }: { children?: React.ReactNode }) => (
             your spot at the best price before{' '}
             <strong>Thursday, September 12th</strong>.
         </Text>
-        <Heading as="h3" style={heading}>
+        <Heading as="h2" style={heading}>
             Ticket Info
         </Heading>
         <Text style={text}>
@@ -60,7 +60,7 @@ export const TicketsOnSale = ({ children }: { children?: React.ReactNode }) => (
                 </Button>
             </Column>
         </Row>
-        <Heading as="h3" style={heading}>
+        <Heading as="h2" style={heading}>
             Speaker & Session Announcements
         </Heading>
         <Text style={text}>
@@ -68,7 +68,7 @@ export const TicketsOnSale = ({ children }: { children?: React.ReactNode }) => (
             Stay tuned for updates on social media and in your inbox. You won’t
             want to miss it!
         </Text>
-        <Heading as="h3" style={heading}>
+        <Heading as="h2" style={heading}>
             More Info
         </Heading>
         <Text style={text}>

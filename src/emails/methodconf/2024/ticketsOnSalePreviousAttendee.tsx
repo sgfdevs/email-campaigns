@@ -6,7 +6,7 @@ import { button } from '../../../components/methodconf/button';
 
 export const TicketsOnSalePreviousAttendee = () => (
     <TicketsOnSale>
-        <Heading as="h3" style={heading}>
+        <Heading as="h2" style={heading}>
             Why Are You Emailing Me?
         </Heading>
         <Text style={text}>
