@@ -27,7 +27,7 @@ export const TicketsOnSale = () => (
         </Text>
         <Row style={{ textAlign: 'center' }}>
             <Column>
-                <Button style={button} href={ticketUrl}>
+                <Button style={button} href={`${ticketUrl}@TrackLink`}>
                     Buy Tickets Now
                 </Button>
             </Column>
