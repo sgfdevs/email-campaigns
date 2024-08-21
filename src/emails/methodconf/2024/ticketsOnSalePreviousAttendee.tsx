@@ -5,14 +5,15 @@ import { heading, text } from '../../../components/methodconf/text';
 import { button } from '../../../components/methodconf/button';
 
 export const TicketsOnSalePreviousAttendee = () => (
-    <TicketsOnSale>
+    <TicketsOnSale showUnsubscribe={false}>
         <Heading as="h2" style={heading}>
-            Why Are You Emailing Me?
+            Interested in More Updates?
         </Heading>
         <Text style={text}>
-            We sent you this email because you attended Method Conference 2020.
-            If you'd like continue to receive updates for Method 2024, opt-in
-            with the link below, otherwise we won't email you again.
+            We're sending you this email because you attended Method Conference
+            2020. If you'd like to continue to receive updates for Method 2024
+            and future events, opt-in with the link below, otherwise we won't
+            email you again.
         </Text>
         <Row style={{ textAlign: 'center' }}>
             <Column>

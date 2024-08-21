@@ -14,8 +14,19 @@ import { button } from '../../../components/methodconf/button';
 
 const ticketUrl = 'https://l.oveit.com/events/embed?id=5b12c452dc';
 
-export const TicketsOnSale = ({ children }: { children?: React.ReactNode }) => (
-    <Layout title="Tickets to Method Conference 2024 on Sale!">
+export interface TicketsOnSalesProps {
+    children?: React.ReactNode;
+    showUnsubscribe?: boolean;
+}
+
+export const TicketsOnSale = ({
+    children,
+    showUnsubscribe = true,
+}: TicketsOnSalesProps) => (
+    <Layout
+        showUnsubscribe={showUnsubscribe}
+        title="Tickets to Method Conference 2024 on Sale!"
+    >
         <Text style={text}>
             We are excited to announce that registration is now open for Method
             Conference 2024! Don't miss out on our Early Bird special—secure
