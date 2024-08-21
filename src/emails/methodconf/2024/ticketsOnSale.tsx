@@ -12,7 +12,7 @@ import { Layout } from '../../../components/methodconf/Layout';
 import { heading, link, text } from '../../../components/methodconf/text';
 import { button } from '../../../components/methodconf/button';
 
-const ticketUrl = 'https://l.oveit.com/events/embed?id=5b12c452dc';
+const ticketUrl = 'https://www.methodconf.com/tickets';
 
 export interface TicketsOnSalesProps {
     children?: React.ReactNode;
