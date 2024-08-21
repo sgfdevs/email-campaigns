@@ -16,11 +16,6 @@ import {
 import { ASSET_BASE_URL } from '../../config';
 import { colors } from './colors';
 
-export interface LayoutProps {
-    title: string;
-    children: React.ReactNode;
-}
-
 const socialLinks = [
     {
         url: 'https://www.linkedin.com/company/methodconf',
@@ -44,13 +39,23 @@ const socialLinks = [
     },
 ];
 
-export const Layout = ({ title, children }: LayoutProps) => (
+export interface LayoutProps {
+    title: string;
+    children: React.ReactNode;
+    showUnsubscribe?: boolean;
+}
+
+export const Layout = ({
+    title,
+    showUnsubscribe = true,
+    children,
+}: LayoutProps) => (
     <Html>
         <Head />
         <Preview>{title}</Preview>
         <Body style={main}>
-            <Container>
-                <Section>
+            <Section style={headerBackground}>
+                <Container>
                     <Row style={header}>
                         <Column style={logo}>
                             <Img
@@ -58,9 +63,15 @@ export const Layout = ({ title, children }: LayoutProps) => (
                                 style={{ height: '40px', margin: '0 auto' }}
                                 src={`${ASSET_BASE_URL}/methodconf-2024-logo.png`}
                             />
-                            <Heading>{title}</Heading>
+                            <Heading style={{ margin: '20px 0 0 0' }}>
+                                {title}
+                            </Heading>
                         </Column>
                     </Row>
+                </Container>
+            </Section>
+            <Section style={dateBannerBackground}>
+                <Container>
                     <Row>
                         <Column style={dateBanner}>
                             <Text style={dateBannerText}>
@@ -68,73 +79,86 @@ export const Layout = ({ title, children }: LayoutProps) => (
                             </Text>
                         </Column>
                     </Row>
-                </Section>
+                </Container>
+            </Section>
+            <Container>
                 <Section style={content}>{children}</Section>
-                <Section>
-                    <Row style={{ marginBottom: '20px' }}>
-                        <Column style={centerLinks}>
-                            {socialLinks.map((socialLink, index, arr) => (
-                                <Text
-                                    style={{
-                                        display: 'inline',
-                                        marginRight:
-                                            arr.length - 1 !== index
-                                                ? '60px'
-                                                : '0px',
-                                    }}
-                                    key={socialLink.url}
-                                >
-                                    <Link href={`${socialLink.url}@TrackLink`}>
-                                        <Img
-                                            style={socialImage}
-                                            src={`${ASSET_BASE_URL}/${socialLink.iconUrl}`}
-                                            alt={socialLink.alt}
-                                        />
-                                    </Link>
-                                </Text>
-                            ))}
-                        </Column>
-                    </Row>
-                    <Row>
-                        <Column style={centerLinks}>
+            </Container>
+            <Section>
+                <Row style={{ marginBottom: '20px' }}>
+                    <Column style={centerLinks}>
+                        {socialLinks.map((socialLink, index, arr) => (
+                            <Text
+                                style={{
+                                    display: 'inline',
+                                    marginRight:
+                                        arr.length - 1 !== index
+                                            ? '60px'
+                                            : '0px',
+                                }}
+                                key={socialLink.url}
+                            >
+                                <Link href={`${socialLink.url}@TrackLink`}>
+                                    <Img
+                                        style={socialImage}
+                                        src={`${ASSET_BASE_URL}/${socialLink.iconUrl}`}
+                                        alt={socialLink.alt}
+                                    />
+                                </Link>
+                            </Text>
+                        ))}
+                    </Column>
+                </Row>
+                <Row>
+                    <Column style={centerLinks}>
+                        {showUnsubscribe ? (
                             <Link
-                                style={{ ...footerLink, marginRight: '20px' }}
+                                style={{
+                                    ...footerLink,
+                                    marginRight: '20px',
+                                }}
                                 href="{{ UnsubscribeURL }}"
                             >
                                 Unsubscribe
                             </Link>
-                            <Link style={footerLink} href="{{ MessageURL }}">
-                                View in Browser
-                            </Link>
-                        </Column>
-                    </Row>
-                    {'{{ TrackView }}'}
-                </Section>
-            </Container>
+                        ) : null}
+                        <Link style={footerLink} href="{{ MessageURL }}">
+                            View in Browser
+                        </Link>
+                    </Column>
+                </Row>
+                {'{{ TrackView }}'}
+            </Section>
         </Body>
     </Html>
 );
 
 const main = {
     margin: 0,
-    backgroundColor: colors.white,
+    padding: 0,
     fontFamily:
         '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
 } as const;
 
 const logo = { height: '40px', margin: '0 auto' } as const;
 
-const header = {
-    padding: '10px 10px 20px 10px',
-    textAlign: 'center',
+const headerBackground = {
     backgroundColor: colors.black,
+};
+
+const header = {
+    padding: '20px 10px 40px 10px',
+    textAlign: 'center',
     color: colors.white,
+} as const;
+
+const dateBannerBackground = {
+    backgroundColor: colors.red,
 } as const;
 
 const dateBanner = {
     textAlign: 'center',
     padding: '9px',
-    backgroundColor: colors.red,
     color: colors.white,
 } as const;
 
