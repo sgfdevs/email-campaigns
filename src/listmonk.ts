@@ -1,4 +1,4 @@
-import { LISTMONK_PASSWORD, LISTMONK_URL, LISTMONK_USERNAME } from './config';
+import { LISTMONK_PASSWORD, LISTMONK_URL, LISTMONK_USERNAME } from '@/config';
 
 export class ListmonkClient {
     private static PER_PAGE = 100;

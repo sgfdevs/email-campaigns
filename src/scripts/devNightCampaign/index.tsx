@@ -1,8 +1,8 @@
-import { getNextEvent } from './getNextEvent';
-import { parseEventDetails } from './parseEventDetails';
 import { renderAsync } from '@react-email/render';
-import { SgfDevNightEmail } from '../../emails/sgfdevs/devNight';
-import { createOrUpdateDraftCampaign } from './createOrUpdateDraftCampaign';
+import { getNextEvent } from '@/scripts/devNightCampaign/getNextEvent';
+import { parseEventDetails } from '@/scripts/devNightCampaign/parseEventDetails';
+import { DevNightEmail } from '@/emails/sgfdevs/DevNight';
+import { createOrUpdateDraftCampaign } from '@/scripts/devNightCampaign/createOrUpdateDraftCampaign';
 
 async function devNightCampaign(): Promise<void> {
     const event = await getNextEvent();
@@ -15,10 +15,9 @@ async function devNightCampaign(): Promise<void> {
     const eventDetails = parseEventDetails(event);
 
     console.log('rendering email template');
-    const emailHtml = await renderAsync(
-        <SgfDevNightEmail {...eventDetails} />,
-        { pretty: true },
-    );
+    const emailHtml = await renderAsync(<DevNightEmail {...eventDetails} />, {
+        pretty: true,
+    });
 
     await createOrUpdateDraftCampaign(eventDetails, emailHtml);
 }

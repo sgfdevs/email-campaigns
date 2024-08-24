@@ -22,10 +22,10 @@ import {
     SGF_DEVS_DISCORD_LINK,
     SGF_DEVS_PROFILE_LINK,
     SGF_DEVS_TWITCH_LINK,
-} from '../../config';
-import { NewLinesToBr } from '../../components/NewLinesToBr';
+} from '@/config';
+import { NewLinesToBr } from '@/components/NewLinesToBr';
 
-export const SgfDevNightEmail = ({
+export const DevNightEmail = ({
     presentations,
     datetime,
     title,
@@ -276,7 +276,7 @@ export default () => {
     });
 
     return (
-        <SgfDevNightEmail
+        <DevNightEmail
             presentations={[
                 {
                     title: 'Presentation 1 title',

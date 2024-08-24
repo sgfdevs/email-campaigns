@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { TicketsOnSale } from './ticketsOnSale';
 import { Button, Column, Heading, Row, Text } from '@react-email/components';
-import { heading, text } from '../../../components/methodconf/text';
-import { button } from '../../../components/methodconf/button';
+import { TicketsOnSale } from '@/emails/methodconf/2024/TicketsOnSale';
+import { heading, text } from '@/components/methodconf/text';
+import { button } from '@/components/methodconf/button';
 
 export const TicketsOnSalePreviousAttendee = () => (
     <TicketsOnSale showUnsubscribe={false}>

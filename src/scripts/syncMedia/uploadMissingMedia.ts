@@ -1,6 +1,6 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import { listmonkClient, Media } from '../../listmonk';
+import { listmonkClient, Media } from '@/listmonk';
 
 const LOCAL_MEDIA_DIR = path.join('src', 'emails', 'static');
 

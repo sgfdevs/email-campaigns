@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { _throw, parseNumber } from './util';
+import { _throw, parseNumber } from '@/util';
 
 export const SGF_DEVS_DISCORD_LINK = 'https://discord.com/invite/VNNJwJk';
 export const SGF_DEVS_PROFILE_LINK = 'https://sgf.dev/register';
