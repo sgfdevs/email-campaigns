@@ -1,4 +1,4 @@
-import { colors } from './colors';
+import { colors } from '@/components/methodconf/colors';
 
 export const text = {
     fontSize: '16px',

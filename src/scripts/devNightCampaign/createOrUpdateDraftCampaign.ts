@@ -1,12 +1,12 @@
-import { EventDetails } from '../../emails/sgfdevs/devNight';
+import { formatInTimeZone } from 'date-fns-tz';
+import { EventDetails } from '@/emails/sgfdevs/DevNight';
 import {
     CampaignContentType,
     CampaignStatus,
     CampaignType,
     listmonkClient,
-} from '../../listmonk';
-import { formatInTimeZone } from 'date-fns-tz';
-import { CENTRAL_TIMEZONE, DEV_NIGHT_LIST_ID } from '../../config';
+} from '@/listmonk';
+import { CENTRAL_TIMEZONE, DEV_NIGHT_LIST_ID } from '@/config';
 
 export async function createOrUpdateDraftCampaign(
     eventDetails: EventDetails,

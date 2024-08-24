@@ -1,4 +1,4 @@
-import { colors } from './colors';
+import { colors } from '@/components/methodconf/colors';
 
 export const button = {
     backgroundColor: colors.red,

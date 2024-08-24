@@ -1,4 +1,4 @@
-import { SGF_MEETUP_API_BASE_URL, SGF_MEETUP_API_TOKEN } from '../../config';
+import { SGF_MEETUP_API_BASE_URL, SGF_MEETUP_API_TOKEN } from '@/config';
 
 export async function getNextEvent(): Promise<MeetupEvent> {
     console.log('fetching next meetup event');

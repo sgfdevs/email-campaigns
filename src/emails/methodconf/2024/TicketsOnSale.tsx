@@ -8,9 +8,9 @@ import {
 } from '@react-email/components';
 import * as React from 'react';
 
-import { Layout } from '../../../components/methodconf/Layout';
-import { heading, link, text } from '../../../components/methodconf/text';
-import { button } from '../../../components/methodconf/button';
+import { Layout } from '@/components/methodconf/Layout';
+import { heading, link, text } from '@/components/methodconf/text';
+import { button } from '@/components/methodconf/button';
 
 const ticketUrl = 'https://www.methodconf.com/tickets';
 

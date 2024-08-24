@@ -13,8 +13,8 @@ import {
     Section,
     Text,
 } from '@react-email/components';
-import { ASSET_BASE_URL } from '../../config';
-import { colors } from './colors';
+import { ASSET_BASE_URL } from '@/config';
+import { colors } from '@/components/methodconf/colors';
 
 const socialLinks = [
     {

@@ -1,5 +1,5 @@
-import { MeetupEvent } from './getNextEvent';
-import { EventDetails } from '../../emails/sgfdevs/devNight';
+import { MeetupEvent } from '@/scripts/devNightCampaign/getNextEvent';
+import { EventDetails } from '@/emails/sgfdevs/DevNight';
 
 export function parseEventDetails(event: MeetupEvent): EventDetails {
     console.log('parsing out meetup event details');
