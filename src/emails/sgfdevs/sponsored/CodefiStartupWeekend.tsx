@@ -49,23 +49,22 @@ const CodefiStartupWeekend = () => {
             <Section>
                 <Container className="px-6">
                     <Text>
-                        <strong>Ozarks Startup Weekend</strong>
-                        is coming to Springfield, MO,{' '}
-                        <strong>September 13-15</strong>, and it's your chance
-                        to transform your business idea into a viable startup in
-                        just one weekend!
+                        <strong>Ozarks Startup Weekend</strong> is coming to
+                        Springfield, MO, <strong>September 13-15</strong>, and
+                        it's your chance to transform your business idea into a
+                        viable startup in just one weekend!
                     </Text>
                     <Text>
                         <strong>What to expect:</strong>
                         <ul>
-                            <li>
+                            <li className="text-sm">
                                 54 hours of intense creativity and collaboration
                             </li>
-                            <li>
+                            <li className="text-sm">
                                 Work with talented designers, developers, and
                                 business experts
                             </li>
-                            <li>
+                            <li className="text-sm">
                                 Build a working prototype of your idea Pitch to
                                 experienced judges for a chance to win big
                             </li>
@@ -74,9 +73,13 @@ const CodefiStartupWeekend = () => {
                     <Text>
                         <strong>Why participate:</strong>
                         <ul>
-                            <li>$15,000 in cash prizes up for grabs</li>
-                            <li>Invaluable networking opportunities</li>
-                            <li>
+                            <li className="text-sm">
+                                $15,000 in cash prizes up for grabs
+                            </li>
+                            <li className="text-sm">
+                                Invaluable networking opportunities
+                            </li>
+                            <li className="text-sm">
                                 Expert mentorship from successful tech founders
                             </li>
                             <li>
