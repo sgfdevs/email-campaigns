@@ -14,10 +14,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cb0806151/react-email-test/issues"
-  },
-  "homepage": "https://github.com/cb0806151/react-email-test#readme",
   "dependencies": {
     "@react-email/components": "^0.0.23",
     "date-fns": "^3.6.0",
