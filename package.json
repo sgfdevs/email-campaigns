@@ -5,15 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "email dev --dir src/emails",
-    "export": "email export --dir src/emails && tsx updateTrackingLinks.ts",
+    "export": "email export --dir src/emails",
     "dev-night-campaign": "tsx src/scripts/devNightCampaign",
     "sync-media": "tsx src/scripts/syncMedia",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cb0806151/react-email-test.git"
   },
   "keywords": [],
   "author": "",
@@ -23,12 +19,12 @@
   },
   "homepage": "https://github.com/cb0806151/react-email-test#readme",
   "dependencies": {
-    "@react-email/components": "0.0.15",
+    "@react-email/components": "^0.0.23",
     "date-fns": "^3.6.0",
     "date-fns-tz": "^3.1.3",
     "dotenv": "^16.4.5",
     "lorem-ipsum": "^2.0.8",
-    "react-email": "2.1.0"
+    "react-email": "^3.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.5.0",
