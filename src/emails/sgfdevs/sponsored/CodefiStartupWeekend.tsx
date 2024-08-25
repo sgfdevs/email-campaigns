@@ -22,7 +22,10 @@ const config = {
 
 const CodefiStartupWeekend = () => {
     return (
-        <BaseLayout tailwindConfig={config}>
+        <BaseLayout
+            tailwindConfig={config}
+            previewText="Bring your ideas and skills to Ozarks Startup Weekend - September 13-15, 2024."
+        >
             <Section className="bg-primary-light text-white">
                 <Container className="p-6">
                     <div className="sm:float-left w-full sm:w-1/2">
