@@ -1,5 +1,3 @@
-import { TailwindConfig } from '@react-email/components';
-
 export const defaultTailwindConfig = {
     theme: {
         fontFamily: {
@@ -68,4 +66,4 @@ export const defaultTailwindConfig = {
             96: '384px',
         },
     },
-} satisfies TailwindConfig;
+} as const;
