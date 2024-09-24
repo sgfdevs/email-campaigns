@@ -27,7 +27,7 @@ const Method2024 = () => {
             previewText="Method Conference by SGF Devs - Saturday, October 12th, 2024"
         >
             <Section className="bg-primary text-white">
-                <Container className="p-6">
+                <Container>
                     <Img
                         className="w-full mx-auto"
                         src={`${ASSET_BASE_URL}/sgfdevs-method-2024.png`}
