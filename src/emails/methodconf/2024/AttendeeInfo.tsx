@@ -90,7 +90,11 @@ export const AttendeeInfo = () => (
                 <Link href="https://apps.apple.com/us/app/method-conf/id1498359521@TrackLink">
                     <Img
                         alt="Download on the App Store"
-                        style={{ height: '60px', margin: '0 auto' }}
+                        style={{
+                            width: '100%',
+                            maxHeight: '50px',
+                            margin: '0 auto',
+                        }}
                         src={`${ASSET_BASE_URL}/app-store.png`}
                     />
                 </Link>
@@ -99,7 +103,11 @@ export const AttendeeInfo = () => (
                 <Link href="https://play.google.com/store/apps/details?id=com.sgfdevs.methodConfApp@TrackLink">
                     <Img
                         alt="Get it on Google Play"
-                        style={{ height: '60px', margin: '0 auto' }}
+                        style={{
+                            width: '100%',
+                            maxHeight: '50px',
+                            margin: '0 auto',
+                        }}
                         src={`${ASSET_BASE_URL}/play-store.png`}
                     />
                 </Link>
