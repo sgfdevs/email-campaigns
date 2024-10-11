@@ -86,7 +86,7 @@ export const AttendeeInfo = () => (
             </ul>
         </Text>
         <Row style={{ textAlign: 'center' }}>
-            <Column>
+            <Column style={{ paddingRight: '5px' }}>
                 <Link href="https://apps.apple.com/us/app/method-conf/id1498359521@TrackLink">
                     <Img
                         alt="Download on the App Store"
@@ -95,7 +95,7 @@ export const AttendeeInfo = () => (
                     />
                 </Link>
             </Column>
-            <Column>
+            <Column style={{ paddingLeft: '5px' }}>
                 <Link href="https://play.google.com/store/apps/details?id=com.sgfdevs.methodConfApp@TrackLink">
                     <Img
                         alt="Get it on Google Play"
