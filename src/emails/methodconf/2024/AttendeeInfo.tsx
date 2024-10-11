@@ -91,8 +91,8 @@ export const AttendeeInfo = () => (
                     <Img
                         alt="Download on the App Store"
                         style={{
-                            width: '100%',
-                            maxHeight: '50px',
+                            maxHeight: '80px',
+                            maxWidth: '100%',
                             margin: '0 auto',
                         }}
                         src={`${ASSET_BASE_URL}/app-store.png`}
@@ -104,8 +104,8 @@ export const AttendeeInfo = () => (
                     <Img
                         alt="Get it on Google Play"
                         style={{
-                            width: '100%',
-                            maxHeight: '50px',
+                            maxHeight: '80px',
+                            maxWidth: '100%',
                             margin: '0 auto',
                         }}
                         src={`${ASSET_BASE_URL}/play-store.png`}
