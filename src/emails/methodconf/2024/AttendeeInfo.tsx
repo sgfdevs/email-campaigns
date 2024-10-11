@@ -110,7 +110,10 @@ export const AttendeeInfo = () => (
         </Heading>
         <Text style={text}>
             Last but certainly not least, we want to bring attention to our{' '}
-            <Link href="https://www.methodconf.com/2024/code-of-conduct@TrackLink">
+            <Link
+                style={link}
+                href="https://www.methodconf.com/2024/code-of-conduct@TrackLink"
+            >
                 Code of Conduct
             </Link>
             . Please read and review this document as you are agreeing to follow
