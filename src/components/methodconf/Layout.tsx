@@ -43,11 +43,13 @@ export interface LayoutProps {
     title: string;
     children: React.ReactNode;
     showUnsubscribe?: boolean;
+    showDateBanner?: boolean;
 }
 
 export const Layout = ({
     title,
     showUnsubscribe = true,
+    showDateBanner = true,
     children,
 }: LayoutProps) => (
     <Html>
@@ -70,17 +72,19 @@ export const Layout = ({
                     </Row>
                 </Container>
             </Section>
-            <Section style={dateBannerBackground}>
-                <Container>
-                    <Row>
-                        <Column style={dateBanner}>
-                            <Text style={dateBannerText}>
-                                Saturday October 12th, 2024 @ The efactory
-                            </Text>
-                        </Column>
-                    </Row>
-                </Container>
-            </Section>
+            {showDateBanner ? (
+                <Section style={dateBannerBackground}>
+                    <Container>
+                        <Row>
+                            <Column style={dateBanner}>
+                                <Text style={dateBannerText}>
+                                    Saturday October 12th, 2024 @ The efactory
+                                </Text>
+                            </Column>
+                        </Row>
+                    </Container>
+                </Section>
+            ) : null}
             <Container>
                 <Section style={content}>{children}</Section>
             </Container>

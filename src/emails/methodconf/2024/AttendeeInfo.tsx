@@ -1,20 +1,9 @@
-import {
-    Button,
-    Column,
-    Heading,
-    Img,
-    Link,
-    Row,
-    Text,
-} from '@react-email/components';
+import { Column, Heading, Img, Link, Row, Text } from '@react-email/components';
 import * as React from 'react';
 
 import { Layout } from '@/components/methodconf/Layout';
 import { heading, link, text } from '@/components/methodconf/text';
-import { button } from '@/components/methodconf/button';
 import { ASSET_BASE_URL } from '@/config';
-
-const ticketUrl = 'https://www.methodconf.com/tickets';
 
 export const AttendeeInfo = () => (
     <Layout
