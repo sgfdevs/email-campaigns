@@ -17,7 +17,7 @@ export function parseEventDetails(event: MeetupEvent): EventDetails {
         const [title, speakerSegment] = titleSpeakerSegment
             .trim()
             .replace(/^\**|\**$/g, '')
-            .split('-')
+            .split(' - ')
             .map((str) => str.trim());
 
         const { speaker } = speakerSegment.match(
