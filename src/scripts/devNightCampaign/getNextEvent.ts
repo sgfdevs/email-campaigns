@@ -1,27 +1,30 @@
-import { SGF_MEETUP_API_BASE_URL, SGF_MEETUP_API_TOKEN } from '@/config';
+import {
+    SGF_MEETUP_API_BASE_URL,
+    SGF_MEETUP_API_CLIENT_ID,
+    SGF_MEETUP_API_CLIENT_SECRET,
+} from '@/config';
 
 export async function getNextEvent(): Promise<MeetupEvent> {
+    console.log('getting api token');
+
+    const token = await getToken();
+
     console.log('fetching next meetup event');
-    const res: MeetupEventResponse = await fetch(
-        `${SGF_MEETUP_API_BASE_URL}/events?group=sgfdevs&next=true`,
+
+    return await fetch(
+        `${SGF_MEETUP_API_BASE_URL}/v1/groups/sgfdevs/events/next`,
         {
             headers: {
-                Authorization: SGF_MEETUP_API_TOKEN,
+                Authorization: `Bearer ${token}`,
             },
         },
     ).then((res) => res.json());
-
-    return res.events[0];
-}
-
-export interface MeetupEventResponse {
-    success: boolean;
-    events: MeetupEvent[];
 }
 
 export interface MeetupEvent {
     id: string;
-    group: Group;
+    groupId: string;
+    groupName: string;
     title: string;
     eventUrl: string;
     description: string;
@@ -30,11 +33,6 @@ export interface MeetupEvent {
     venue: Venue;
     host: Host;
     images: string[];
-}
-
-export interface Group {
-    name: string;
-    urlname: string;
 }
 
 export interface Host {
@@ -47,4 +45,29 @@ export interface Venue {
     city: string;
     state: string;
     postalCode: string;
+}
+
+async function getToken(): Promise<string> {
+    const res: AuthResponse = await fetch(
+        `${SGF_MEETUP_API_BASE_URL}/v1/auth`,
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                clientId: SGF_MEETUP_API_CLIENT_ID,
+                clientSecret: SGF_MEETUP_API_CLIENT_SECRET,
+            }),
+        },
+    ).then((res) => res.json());
+
+    return res.accessToken;
+}
+
+interface AuthResponse {
+    accessToken: string;
+    accessTokenExpiresAt: string;
+    refreshToken: string;
+    refreshTokenExpiresAt: string;
 }

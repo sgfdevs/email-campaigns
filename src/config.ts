@@ -13,9 +13,13 @@ export const SGF_MEETUP_API_BASE_URL =
     process.env.SGF_MEETUP_API_BASE_URL ??
     _throw('SGF_MEETUP_API_BASE_URL env var not set');
 
-export const SGF_MEETUP_API_TOKEN =
-    process.env.SGF_MEETUP_API_TOKEN ??
-    _throw('SGF_MEETUP_API_TOKEN env var not set');
+export const SGF_MEETUP_API_CLIENT_ID =
+    process.env.SGF_MEETUP_API_CLIENT_ID ??
+    _throw('SGF_MEETUP_API_CLIENT_ID env var not set');
+
+export const SGF_MEETUP_API_CLIENT_SECRET =
+    process.env.SGF_MEETUP_API_CLIENT_SECRET ??
+    _throw('SGF_MEETUP_API_CLIENT_SECRET env var not set');
 
 export const LISTMONK_URL =
     process.env.LISTMONK_URL ?? _throw('LISTMONK_URL env var not set');
