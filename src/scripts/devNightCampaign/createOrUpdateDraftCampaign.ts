@@ -38,7 +38,7 @@ export async function createOrUpdateDraftCampaign(
         lists: [DEV_NIGHT_LIST_ID],
         type: CampaignType.regular,
         content_type: CampaignContentType.html,
-        body: emailHtml,
+        body: removeNullBytes(emailHtml),
     };
 
     if (foundCampaign) {
@@ -67,5 +67,17 @@ export async function createOrUpdateDraftCampaign(
     }
 
     console.log('creating new campaign');
-    await listmonkClient.createCampaign(campaignArgs);
+    try {
+        const newCampaign = await listmonkClient.createCampaign(campaignArgs);
+        console.log(`created new campaign with id ${newCampaign.data.id}`);
+    } catch (e) {
+        console.log(`failed to create new campaign`);
+        console.log(e);
+        throw e;
+    }
+}
+
+function removeNullBytes(value: string): string {
+    // eslint-disable-next-line no-control-regex
+    return value.replace(/\u0000/g, '');
 }
