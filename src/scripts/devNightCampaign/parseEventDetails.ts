@@ -3,15 +3,15 @@ import { EventDetails } from '@/emails/sgfdevs/DevNight';
 
 export function parseEventDetails(event: MeetupEvent): EventDetails {
     console.log('parsing out meetup event details');
+
     const updatedDescription = event.description
         .replace(/\\-/g, '-')
         .replace(/\\#/g, '#')
         .trim();
+
     const presentationStrings = updatedDescription
         .split('###')
         .filter((str) => str.trim() !== '');
-
-    console.log(updatedDescription);
 
     const presentations = presentationStrings.map((presentationStr) => {
         const { titleSpeakerSegment, descriptionSegment } =
@@ -33,8 +33,6 @@ export function parseEventDetails(event: MeetupEvent): EventDetails {
             description: description,
         };
     });
-
-    console.log(presentations);
 
     console.log(
         `found ${presentations.length} presentation(s) from Meetup description`,
