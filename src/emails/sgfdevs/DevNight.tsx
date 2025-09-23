@@ -256,7 +256,9 @@ export const DevNightEmail = ({
 export const PresentationSection = (presentation: Presentation) => (
     <>
         <Text style={eventTitle}>{presentation.title}</Text>
-        <Text style={eventHosts}>Presented by {presentation.speaker}</Text>
+        <Text style={eventHosts}>
+            {presentation.byType} by {presentation.speaker}
+        </Text>
         <Text>
             <NewLinesToBr>{presentation.description}</NewLinesToBr>
         </Text>
@@ -282,11 +284,13 @@ export default () => {
                     title: 'Presentation 1 title',
                     speaker: 'Speaker 1',
                     description: lorem.generateParagraphs(2),
+                    byType: 'Presented',
                 },
                 {
                     title: 'Presentation 2 title',
                     speaker: 'Speaker 2',
                     description: lorem.generateParagraphs(1),
+                    byType: 'Hosted',
                 },
             ]}
             title="Test Title"
@@ -392,4 +396,5 @@ export interface Presentation {
     title: string;
     speaker: string;
     description: string;
+    byType: string;
 }
